@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Market</title>
+        <link href="{{asset('stylesheets/app.css')}}" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="./dialog.js"></script>
+        <script src="./orderBook.js"></script>
+        <script src="./market.js"></script>
+        <script src="./onWindowsLoad.js"></script>
+        <script src="./paymentRequest.js"></script>
+        <script src="./accountDialog.js"></script>
+    </head>
+
+    <body>
+      <div id="index">
+        <div class="login-page">
+            <div class="form">
+                <form class="register-form">
+                    <input type="text" id="name1" placeholder="name" />
+                    <input type="password" id ="password1" placeholder="password" />
+                    <input type="text" id="email1" placeholder="email address" />
+                    <button id="create" type="button">create</button>
+                    <p class="message" id="register">Already registered? <a href="#">Sign In</a>
+                    </p>
+                    <div id="result"></div>
+                </form>
+                <form class="login-form">
+                    <input type="text" id="email2" placeholder="email address" />
+                    <input type="password" id = "password2" placeholder="password" />
+                    <button type="button" id="loginButton">login</button>
+                    <p class="message" id="login">Not registered? <a href="#">Create an account</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div id="main" style="display:none">
+        <div class="topnav">
+          <div class="active" id="home">Home</div>
+          <div id="account" style="float:right">Account</div>
+        </div>
+        <div id="orderBooks" class="orderBooks"></div>
+      </div>
+    </body>
+  <!-- Dialog form to Buy and sell Futures https://jqueryui.com/dialog/#modal-form-->
+
+  <div id="dialog-form">
+    <p class="validateTips">All form fields are required.</p>
+    <form>
+      <fieldset>
+        <label for="quantity">Quantity</label>
+        <input type="text" name="quantity" id="quantity" class="text ui-widget-content ui-corner-all">
+        <label for="price">Price</label>
+        <input type="text" name="price" id="price" class="text ui-widget-content ui-corner-all">
+        <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="account-dialog">
+    <div>
+      <p style='display:inline-block'>Balance: </p><p style="display:inline-block" id="accountBalance"></p><p style="display:inline-block">ETH</p>
+    </div>
+  	<table>
+      <tr>
+        <th>Unpayed Payments</th>
+        <th>Value [ETH]</th>
+      </tr>
+      <tbody id="unpayedTransactionsBody">
+      </tbody>
+    </table>
+  </div>
+</html>

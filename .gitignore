@@ -1,0 +1,4 @@
+*.json
+DAPPS/CompensationChamber/build/
+DAPPS/CompensationChamber/build/contracts/*.json
+DAPPS/CompensationChamber/Web/node_modules/
